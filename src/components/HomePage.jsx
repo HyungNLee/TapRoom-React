@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function HomePage() {
   return (
@@ -33,11 +34,15 @@ function HomePage() {
             1px 1px 0 #000;
           font-style: italic;
         }
+        .btnlink {
+          position: relative;
+          transform: translate(150%, -500%);
+        }
       `}</style>
       <div className='homepage-main'>
         <p>A large selection of quality draft beers on tap.</p>
         <img src='https://mbtskoudsalg.com/images/bar-tap-png.png'/>
-        
+        <Link to="/beerlist"><button className='btnlink btn btn-success'>Beer List</button></Link>
       </div>
     </div>
   );

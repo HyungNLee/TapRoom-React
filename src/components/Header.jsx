@@ -17,7 +17,7 @@ function Header() {
       `}</style>
       <div className="title">
         <h1>Welcome to the Tap Room</h1>
-        <Link to="/"><button className='btn btn-success'>Home</button></Link>
+        <Link to="/"><button className='btn btn-info'>Home</button></Link>
       </div>
     </div>
   );

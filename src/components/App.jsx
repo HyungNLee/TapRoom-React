@@ -3,6 +3,7 @@ import React from 'react';
 import { Switch, Route } from 'react-router-dom';
 import HomePage from './HomePage';
 import Header from './Header';
+import BeerList from './BeerList';
 // import { Link } from 'react-router-dom';
 // <Link to="/">Home</Link> | <Link to="/newticket">Create Ticket</Link>
 
@@ -18,6 +19,7 @@ function App(){
       <Header/>
       <Switch>
         <Route exact path='/' component={HomePage} />
+        <Route path='/beerlist' component={BeerList} />
       </Switch>
     </div>
   );
