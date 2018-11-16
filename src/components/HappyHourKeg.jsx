@@ -1,16 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
+// Color the progress bar. Doesn't work right now because I need to figure out how to dynamically change the CSS values using a function for progress bar width.
 function progressBarClass(selectedKeg) {
-  let bar =  document.getElementById("");
+  let bar =  document.getElementById('');
   if (selectedKeg.amount <= 10) {
-    return "bg-danger";
+    return 'bg-danger';
   } else if (selectedKeg.amount <= 25) {
-    return "bg-warning";
+    return 'bg-warning';
   } else if (selectedKeg.amount <= 99) {
-    return "bg-success";
+    return 'bg-success';
   } else if (selectedKeg.amount <= 124) {
-    return "bg-primary";
+    return 'bg-primary';
   }
 }
 
@@ -76,7 +77,9 @@ function HappyHourKeg(props) {
         -o-transform: rotate(90deg);
         float: left;
     }
-    
+    .btn {
+      margin: 3px;
+    }
     `}</style>
       <div className="card">
 
@@ -103,11 +106,11 @@ function HappyHourKeg(props) {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
 HappyHourKeg.propTypes = {
   keg: PropTypes.object.isRequired
-}
+};
 
 export default HappyHourKeg;

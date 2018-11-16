@@ -16,8 +16,8 @@ function HappyHourList(props) {
       <div className="row">
         {props.kegList.map((keg, index) =>
           <HappyHourKeg keg={keg}
-          key={index} />
-          )};
+            key={index} />
+        )};
       </div>
     </div >
   );
@@ -25,6 +25,6 @@ function HappyHourList(props) {
 
 HappyHourList.propTypes = {
   kegList: PropTypes.array.isRequired
-}
+};
 
 export default HappyHourList;
