@@ -4,7 +4,7 @@ import RegularBeerList from './RegularBeerList';
 
 const masterKegList = [
   {
-    title: 'Original White Ale',
+    name: 'Original White Ale',
     brand: 'Hoegaarden',
     price: 3.50,
     alcoholContent: .049,
@@ -12,7 +12,7 @@ const masterKegList = [
     amount: 124
   },
   {
-    title: 'Summer Honey Wheat',
+    name: 'Summer Honey Wheat',
     brand: 'Blue Moon',
     price: 2.75,
     alcoholContent: .052,
@@ -20,7 +20,7 @@ const masterKegList = [
     amount: 124
   },
   {
-    title: 'Pale Lager',
+    name: 'Pale Lager',
     brand: 'Bia Hanoi',
     price: 2.5,
     alcoholContent: .042,
@@ -28,7 +28,7 @@ const masterKegList = [
     amount: 124
   },
   {
-    title: 'Bad Apple',
+    name: 'Bad Apple',
     brand: 'Two Town Ciderhouse',
     price: 4.25,
     alcoholContent: .105,
@@ -36,7 +36,7 @@ const masterKegList = [
     amount: 124
   },
   {
-    title: 'Pale Lager',
+    name: 'Pale Lager',
     brand: 'Heineken',
     price: 1.99,
     alcoholContent: .050,

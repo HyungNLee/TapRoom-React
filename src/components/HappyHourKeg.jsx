@@ -28,16 +28,16 @@ function HappyHourKeg(props) {
         border: darkgray 1px solid;
         padding: 2%;
         width: 18rem;
-    }
-    
-    ul, li {
+      }
+      
+      ul, li {
         background: rgba(0, 0, 90, 0.15);
         padding: 2%;  
         color: white;
         text-align: center;
-    }
-    
-    .vertical {
+      }
+      
+      .vertical {
         margin-top: -210px;
         margin-bottom: 150px;
         /* display: inline-block; */
@@ -45,19 +45,19 @@ function HappyHourKeg(props) {
         height: 40px;
         -webkit-transform: rotate(-90deg); /* Chrome, Safari, Opera */
         transform: rotate(-90deg);
-    }
-    .vertical {
+      }
+      .vertical {
         box-shadow: inset 0px 4px 6px #ccc;
-    }
-    .progress-bar {
+      }
+      .progress-bar {
         box-shadow: inset 0px 4px 6px rgba(100,100,100,0.6);
-    }
-    
-    .progress {
+      }
+      
+      .progress {
         position:relative;
         background-color: black;
-    }
-    .progress-value {
+      }
+      .progress-value {
         position:absolute;
         left:0;
         height: 100%;
@@ -76,10 +76,14 @@ function HappyHourKeg(props) {
         /* Opera */
         -o-transform: rotate(90deg);
         float: left;
-    }
-    .btn {
-      margin: 3px;
-    }
+      }
+      .btn {
+        margin: 3px;
+      }
+      h5 {
+        color: white;
+        text-align: center;
+      }
     `}</style>
       <div className="card">
 
