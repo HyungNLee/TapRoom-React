@@ -17,6 +17,11 @@
 ## Notes
 
   * I had trouble replicating calling functions to replace values in CSS. I had to either hard-code or take some values out.
+  * It seems like what I could do in Angular, React separated into props and states.
+## Development Notes
+
+  * Angular had specific Angular language that needed to be used for the website to render. React is a bit different since we are adding HTML directing in a JavaScript function.
+  * Since React is front-end only and we are using JavaScript to control the HTML, I feel like this gives us more power to craft sites.
 
 ## Support and contact details
 
