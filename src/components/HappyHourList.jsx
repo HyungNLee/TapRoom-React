@@ -1,6 +1,8 @@
 import React from 'react';
+import PropTypes from 'prop-types';
+import HappyHourKeg from './HappyHourKeg';
 
-function HappyHourList() {
+function HappyHourList(props) {
   return (
     <div className='happyhour-main'>
       <style jsx>{`
@@ -11,11 +13,18 @@ function HappyHourList() {
         }
       `}</style>
       <h2>Happy Hour Kegs</h2>
-      <div class="row">
-        
+      <div className="row">
+        {props.kegList.map((keg, index) =>
+          <HappyHourKeg keg={keg}
+          key={index} />
+          )};
       </div>
     </div >
   );
+}
+
+HappyHourList.propTypes = {
+  kegList: PropTypes.array.isRequired
 }
 
 export default HappyHourList;

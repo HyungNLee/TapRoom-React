@@ -45,14 +45,24 @@ const masterKegList = [
   }
 ];
 
+function happyHourKegList(masterList) {
+  let filteredList = [];
+  masterList.forEach(keg => {
+    if (keg.onSale == true) {
+      filteredList.push(keg);
+    }
+  });
+  return filteredList;
+}
+
 function BeerList() {
   return (
     <div className='beerlist-body'>
       <style jsx>{`
 
       `}</style>
-      <HappyHourList />
-      <RegularBeerList />
+      <HappyHourList kegList={happyHourKegList(masterKegList)}/>
+      <RegularBeerList kegList={masterKegList}/>
     </div>
   );
 }
