@@ -3,6 +3,21 @@ import PropTypes from 'prop-types';
 import HappyHourKeg from './HappyHourKeg';
 
 function HappyHourList(props) {
+
+  function happyHourKegList() {
+    let filteredList = {};
+    for (let key in props.kegList) {
+      if (props.kegList[key].onSale == true) {
+        filteredList = Object.assign({}, filteredList, {
+          [key]: props.kegList[key]
+        });
+      }
+    }
+    return filteredList;
+  }
+
+  let filteredList = happyHourKegList(props.kegList);
+
   return (
     <div className='happyhour-main'>
       <style jsx>{`
@@ -14,9 +29,10 @@ function HappyHourList(props) {
       `}</style>
       <h2>Happy Hour Kegs</h2>
       <div className="row">
-        {props.kegList.map((keg, index) =>
-          <HappyHourKeg keg={keg}
-            key={index} />
+        {Object.keys(filteredList).map(key =>
+          <HappyHourKeg keg={filteredList[key]}
+            key={key}
+            id={key} />
         )};
       </div>
     </div >
@@ -24,7 +40,7 @@ function HappyHourList(props) {
 }
 
 HappyHourList.propTypes = {
-  kegList: PropTypes.array.isRequired
+  kegList: PropTypes.object.isRequired
 };
 
 export default HappyHourList;

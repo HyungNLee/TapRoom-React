@@ -2,6 +2,25 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function RegularBeerList(props) {
+  let index = 0;
+  function returnNewIndex() {
+    return index++;
+  }
+
+  function regularBeerListFilter() {
+    let filteredList = {};
+    for (let key in props.kegList) {
+      if (props.kegList[key].onSale == false) {
+        filteredList = Object.assign({}, filteredList, {
+          [key]: props.kegList[key]
+        });
+      }
+    }
+    return filteredList;
+  }
+
+  let filteredList = regularBeerListFilter(props.kegList);
+
   return (
     <div className='list-main'>
       <style jsx>{`
@@ -62,18 +81,18 @@ function RegularBeerList(props) {
             </tr>
           </thead>
           <tbody>
-            {props.kegList.map((keg, index) =>
-              <tr key={index}>
-                <th scope="row">{index + 1}</th>
-                <td>{keg.name}</td>
-                <td>{keg.brand}</td>
-                <td>{keg.price}</td>
-                <td>{keg.alcoholContent}</td>
+            {Object.keys(filteredList).map(key =>
+              <tr key={key}>
+                <th scope="row">{returnNewIndex()}</th>
+                <td>{filteredList[key].name}</td>
+                <td>{filteredList[key].brand}</td>
+                <td>{filteredList[key].price}</td>
+                <td>{filteredList[key].alcoholContent}</td>
                 <td>
                   <div className="progress">
-                    <span className='progress-value'>{keg.amount} pints</span>
+                    <span className='progress-value'>{filteredList[key].amount} pints</span>
                     <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                      aria-valuenow={keg.amount} aria-valuemin="0" aria-valuemax="124" >
+                      aria-valuenow={filteredList[key].amount} aria-valuemin="0" aria-valuemax="124" >
                     </div>
                   </div>
                 </td>
@@ -89,7 +108,7 @@ function RegularBeerList(props) {
 }
 
 RegularBeerList.propTypes = {
-  kegList: PropTypes.array.isRequired
+  kegList: PropTypes.object.isRequired
 };
 
 export default RegularBeerList;

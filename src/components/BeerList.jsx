@@ -5,26 +5,12 @@ import { v4 } from 'uuid';
 import Beer from '../models/Beer';
 
 const masterKegList = {
-  [v4()]: new Beer('Original White Ale', 'Hoegaarden', 3.50, .049),
-  [v4()]: new Beer('Summer Honey Wheat', 'Blue Moon', 2.75, .052),
-  [v4()]: new Beer('Pale Lager', 'Bia Hanoi', 2.5, .042),
-  [v4()]: new Beer('Bad Apple', 'Two Town Ciderhoues', 4.25, .105),
-  [v4()]: new Beer('Pale Lager', 'Heineken', 1.99, .050),
-  [v4()]: new Beer(''),
+  [v4()]: new Beer('Original White Ale', 'Hoegaarden', 3.50, .049, true),
+  [v4()]: new Beer('Summer Honey Wheat', 'Blue Moon', 2.75, .052, true),
+  [v4()]: new Beer('Pale Lager', 'Bia Hanoi', 2.5, .042, false),
+  [v4()]: new Beer('Bad Apple', 'Two Town Ciderhoues', 4.25, .105, false),
+  [v4()]: new Beer('Pale Lager', 'Heineken', 1.99, .050, false),
 };
-
-function happyHourKegList(masterList) {
-  let filteredList = {};
-  for (let key in masterList) {
-    if (masterList[key].onSale == true) {
-      filteredList = Object.assign({}, filteredList, {
-        key: masterList[key]
-      })
-      filteredList.push(keg);
-    }
-  };
-  return filteredList;
-}
 
 function BeerList() {
   return (
@@ -32,7 +18,7 @@ function BeerList() {
       <style jsx>{`
 
       `}</style>
-      <HappyHourList kegList={happyHourKegList(masterKegList)}/>
+      <HappyHourList kegList={masterKegList}/>
       <RegularBeerList kegList={masterKegList}/>
     </div>
   );
