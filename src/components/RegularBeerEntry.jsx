@@ -23,7 +23,7 @@ function RegularBeerEntry(props) {
     <tr>
       <style jsx>{`
         .progress-bar {
-          width: ${props.keg.amount * 124 / 100}%;
+          width: ${props.keg.amount / 124 * 100}%;
           background-color: ${progressBarColor(props.keg.amount)}
         }
         tr {
