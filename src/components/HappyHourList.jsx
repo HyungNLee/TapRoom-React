@@ -32,7 +32,9 @@ function HappyHourList(props) {
         {Object.keys(filteredList).map(key =>
           <HappyHourKeg keg={filteredList[key]}
             key={key}
-            id={key} />
+            id={key} 
+            onEditKegAmount={props.onEditKegAmount}
+          />
         )};
       </div>
     </div >
@@ -40,7 +42,8 @@ function HappyHourList(props) {
 }
 
 HappyHourList.propTypes = {
-  kegList: PropTypes.object.isRequired
+  kegList: PropTypes.object.isRequired,
+  onEditKegAmount: PropTypes.func.isRequired
 };
 
 export default HappyHourList;

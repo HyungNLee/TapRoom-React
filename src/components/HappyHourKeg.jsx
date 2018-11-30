@@ -14,6 +14,11 @@ function HappyHourKeg(props) {
     }
   }
 
+  function handleSellKeg() {
+    let newAmount = props.keg.amount - 1;
+    props.onEditKegAmount(props.id, newAmount);
+  }
+
   return (
     <div className='keg-main'>
       <style jsx>{`
@@ -75,6 +80,11 @@ function HappyHourKeg(props) {
         /* Opera */
         -o-transform: rotate(90deg);
         float: left;
+        text-shadow:
+          -1px -1px 0 #000,  
+          1px -1px 0 #000,
+          -1px 1px 0 #000,
+          1px 1px 0 #000;
       }
       .btn {
         margin: 3px;
@@ -104,7 +114,7 @@ function HappyHourKeg(props) {
           <li className="list-group-item">Pints: {props.keg.amount}</li>
         </ul>
         <div className="card-body">
-          <button className="btn btn-primary">Sell Pint</button>
+          <button onClick={handleSellKeg} className="btn btn-primary">Sell Pint</button>
           <button className="btn btn-success">Edit Keg</button>
         </div>
       </div>
@@ -113,7 +123,9 @@ function HappyHourKeg(props) {
 }
 
 HappyHourKeg.propTypes = {
-  keg: PropTypes.object.isRequired
+  keg: PropTypes.object.isRequired,
+  id: PropTypes.string.isRequired,
+  onEditKegAmount: PropTypes.func.isRequired
 };
 
 export default HappyHourKeg;

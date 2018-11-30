@@ -16,15 +16,32 @@ class BeerList extends React.Component {
         [v4()]: new Beer('Pale Lager', 'Heineken', 1.99, .050, false),
       }
     };
+    this.handleEditKegAmount = this.handleEditKegAmount.bind(this);
   }
+
+  handleEditKegAmount(id, amount) {
+    let newKegList = this.state.masterKegList;
+    console.log(amount);
+    newKegList[id].editAmount(amount);
+    this.setState({
+      masterKegList: newKegList 
+    });
+  }
+
   render() {
     return (
       <div className='beerlist-body'>
         <style jsx>{`
   
         `}</style>
-        <HappyHourList kegList={this.state.masterKegList} />
-        <RegularBeerList kegList={this.state.masterKegList} />
+        <HappyHourList 
+         kegList={this.state.masterKegList} 
+         onEditKegAmount={this.handleEditKegAmount}
+        />
+        <RegularBeerList 
+         kegList={this.state.masterKegList}
+         onEditKegAmount={this.handleEditKegAmount}
+        />
       </div>
     );
   }

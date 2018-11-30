@@ -7,4 +7,11 @@ export default class Beer {
     this.onSale = newOnSale;
     this.amount = 124;
   }
+
+  editAmount(amount) {
+    if (amount < 0) {
+      amount = 0;
+    }
+    this.amount = amount;
+  }
 }

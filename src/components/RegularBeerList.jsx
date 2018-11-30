@@ -53,7 +53,9 @@ function RegularBeerList(props) {
               <RegularBeerEntry 
                 keg={filteredList[key]}
                 key={key}
+                id={key}
                 index={returnNewIndex()}
+                onEditKegAmount={props.onEditKegAmount}
               />
             )}
           </tbody>
@@ -64,7 +66,8 @@ function RegularBeerList(props) {
 }
 
 RegularBeerList.propTypes = {
-  kegList: PropTypes.object.isRequired
+  kegList: PropTypes.object.isRequired,
+  onEditKegAmount: PropTypes.func.isRequired
 };
 
 export default RegularBeerList;
