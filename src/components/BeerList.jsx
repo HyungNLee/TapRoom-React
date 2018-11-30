@@ -1,57 +1,28 @@
 import React from 'react';
 import HappyHourList from './HappyHourList';
 import RegularBeerList from './RegularBeerList';
+import { v4 } from 'uuid';
+import Beer from '../models/Beer';
 
-const masterKegList = [
-  {
-    name: 'Original White Ale',
-    brand: 'Hoegaarden',
-    price: 3.50,
-    alcoholContent: .049,
-    onSale: false,
-    amount: 124
-  },
-  {
-    name: 'Summer Honey Wheat',
-    brand: 'Blue Moon',
-    price: 2.75,
-    alcoholContent: .052,
-    onSale: false,
-    amount: 124
-  },
-  {
-    name: 'Pale Lager',
-    brand: 'Bia Hanoi',
-    price: 2.5,
-    alcoholContent: .042,
-    onSale: true,
-    amount: 124
-  },
-  {
-    name: 'Bad Apple',
-    brand: 'Two Town Ciderhouse',
-    price: 4.25,
-    alcoholContent: .105,
-    onSale: false,
-    amount: 124
-  },
-  {
-    name: 'Pale Lager',
-    brand: 'Heineken',
-    price: 1.99,
-    alcoholContent: .050,
-    onSale: true,
-    amount: 124
-  }
-];
+const masterKegList = {
+  [v4()]: new Beer('Original White Ale', 'Hoegaarden', 3.50, .049),
+  [v4()]: new Beer('Summer Honey Wheat', 'Blue Moon', 2.75, .052),
+  [v4()]: new Beer('Pale Lager', 'Bia Hanoi', 2.5, .042),
+  [v4()]: new Beer('Bad Apple', 'Two Town Ciderhoues', 4.25, .105),
+  [v4()]: new Beer('Pale Lager', 'Heineken', 1.99, .050),
+  [v4()]: new Beer(''),
+};
 
 function happyHourKegList(masterList) {
-  let filteredList = [];
-  masterList.forEach(keg => {
-    if (keg.onSale == true) {
+  let filteredList = {};
+  for (let key in masterList) {
+    if (masterList[key].onSale == true) {
+      filteredList = Object.assign({}, filteredList, {
+        key: masterList[key]
+      })
       filteredList.push(keg);
     }
-  });
+  };
   return filteredList;
 }
 
