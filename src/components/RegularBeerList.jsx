@@ -1,10 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import RegularBeerEntry from './RegularBeerEntry';
 
 function RegularBeerList(props) {
   let index = 0;
   function returnNewIndex() {
-    return index++;
+    index++;
+    return index;
   }
 
   function regularBeerListFilter() {
@@ -29,40 +31,6 @@ function RegularBeerList(props) {
           text-align: center;
           margin 15px;
         }
-        .progress-bar {
-          width: 100%;
-        }
-        table, h2 {
-          color: white;
-          text-align: center;
-       }
-      
-        .progress {
-          position:relative;
-          background-color: black;    
-        }
-        .progress-value {
-          position:absolute;
-          left:0;
-          width:100%;
-          text-align:center;
-          z-index:2;
-          color:white;
-          font-weight: bold;
-        }
-        
-        i {
-          color: red;
-          margin: 0;
-          padding: 0;
-        }
-        td {
-          text-shadow:
-            -1px -1px 0 #000,  
-            1px -1px 0 #000,
-            -1px 1px 0 #000,
-            1px 1px 0 #000;
-        }
       `}</style>
       <h2>Kegs On Tap</h2>
       <div>
@@ -82,23 +50,11 @@ function RegularBeerList(props) {
           </thead>
           <tbody>
             {Object.keys(filteredList).map(key =>
-              <tr key={key}>
-                <th scope="row">{returnNewIndex()}</th>
-                <td>{filteredList[key].name}</td>
-                <td>{filteredList[key].brand}</td>
-                <td>{filteredList[key].price}</td>
-                <td>{filteredList[key].alcoholContent}</td>
-                <td>
-                  <div className="progress">
-                    <span className='progress-value'>{filteredList[key].amount} pints</span>
-                    <div className="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
-                      aria-valuenow={filteredList[key].amount} aria-valuemin="0" aria-valuemax="124" >
-                    </div>
-                  </div>
-                </td>
-                <td><button>Sell</button></td>
-                <td><button>Edit</button></td>
-              </tr>
+              <RegularBeerEntry 
+                keg={filteredList[key]}
+                key={key}
+                index={returnNewIndex()}
+              />
             )}
           </tbody>
         </table>

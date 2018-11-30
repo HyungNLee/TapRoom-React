@@ -1,26 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-// Color the progress bar. Doesn't work right now because I need to figure out how to dynamically change the CSS values using a function for progress bar width.
-function progressBarClass(selectedKeg) {
-  let bar =  document.getElementById('');
-  if (selectedKeg.amount <= 10) {
-    return 'bg-danger';
-  } else if (selectedKeg.amount <= 25) {
-    return 'bg-warning';
-  } else if (selectedKeg.amount <= 99) {
-    return 'bg-success';
-  } else if (selectedKeg.amount <= 124) {
-    return 'bg-primary';
-  }
-}
-
 function HappyHourKeg(props) {
+  function progressBarColor(amount) {
+    if (amount <= 10) {
+      return 'red';
+    } else if (amount <= 25) {
+      return 'orange';
+    } else if (amount <= 99) {
+      return 'yellow';
+    } else if (amount <= 124) {
+      return 'green';
+    }
+  }
+
   return (
     <div className='keg-main'>
       <style jsx>{`
       .progress-bar {
-        width: 100%;
+        width: ${props.keg.amount / 124 * 100}%;
+        background-color: ${progressBarColor(props.keg.amount)};
       }
       .card {
         margin: 25px;
@@ -105,8 +104,8 @@ function HappyHourKeg(props) {
           <li className="list-group-item">Pints: {props.keg.amount}</li>
         </ul>
         <div className="card-body">
-          <button className="btn card-link">Sell Pint</button>
-          <button className="btn">Edit Keg</button>
+          <button className="btn btn-primary">Sell Pint</button>
+          <button className="btn btn-success">Edit Keg</button>
         </div>
       </div>
     </div>
