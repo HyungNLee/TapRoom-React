@@ -1,7 +1,7 @@
 # Tap Room React
 
 #### By Hyung Lee
-##### 11/16/18
+##### 11/16/18, updated 11/30/18
 
 ## Outline Diagram
 
